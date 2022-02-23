@@ -1,0 +1,92 @@
+@mixin card-font() {
+  font-size: 14px;
+  line-height: 20px;
+}
+$light-gray: #e5e5e5;
+$font-color: #323d45;
+$orange: #ffa000;
+$btn: #3296f3;
+$white: #ffffff;
+
+.card {
+  width: 334px;
+  height: 308px;
+  margin: 0px 16px;
+  padding: 24px 16px;
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+  color: $font-color;
+
+  .title-wrap {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .card-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .card-status {
+      padding: 2px 8px;
+      border: 1px solid $orange;
+      border-radius: 12px;
+      font-size: 12px;
+      line-height: 20px;
+      color: $orange;
+    }
+  }
+
+  .card-client {
+    margin: 4px 0 24px 0;
+    font-weight: 500;
+    @include card-font();
+  }
+  .card-due {
+    margin-bottom: 16px;
+    font-weight: 400;
+    color: #939fa5;
+    @include card-font();
+  }
+  .divider {
+    border: 1px solid $light-gray;
+  }
+
+  dl {
+    margin: 32px 0;
+    @include card-font();
+
+    div {
+      display: flex;
+      margin-bottom: 8px;
+
+      dt {
+        width: 70px;
+        margin-right: 32px;
+      }
+      dd {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .card-btn-L {
+    margin-right: 8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 0;
+    background-color: $btn;
+    color: $white;
+    @include card-font();
+  }
+
+  .card-btn-R {
+    @extend .card-btn-L;
+    color: $btn;
+    background-color: $white;
+    border: 1px solid $btn;
+  }
+}
