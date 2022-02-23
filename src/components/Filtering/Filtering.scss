@@ -1,0 +1,25 @@
+.filterBox {
+  display: inline-block;
+  margin: 0 8px 32px 0;
+  border: 1px solid #939fa5;
+  border-radius: 4px;
+  font-family: Roboto;
+
+  .filterWrap {
+    display: flex;
+    align-items: center;
+    height: 32px;
+
+    .filterTitle {
+      margin: 0 2px;
+      padding: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #323d45;
+    }
+    .dropdown {
+      height: 5px;
+      margin-right: 19px;
+    }
+  }
+}

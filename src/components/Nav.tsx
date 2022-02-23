@@ -2,7 +2,7 @@ import "./Nav.scss";
 
 const Nav = () => {
   return (
-    <div className='wrap'>
+    <div className='navWrap'>
       <img className='logo' src='../../img/logo.png' alt='logo' />
       <div className='sideWrap'>
         <img className='icon' src='../../img/Vector.png' alt='icon' />
