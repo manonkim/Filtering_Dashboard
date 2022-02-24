@@ -11,26 +11,26 @@ $white: #ffffff;
 .card {
   width: 334px;
   height: 308px;
-  margin: 0px 16px;
+  margin: 0 16px 16px 0;
   padding: 24px 16px;
   border: 1px solid $light-gray;
   border-radius: 4px;
   color: $font-color;
 
-  .title-wrap {
+  .titleWrap {
     padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .card-title {
+    .cardTitle {
       margin: 0;
       font-size: 16px;
       line-height: 1.5;
       font-weight: 700;
     }
 
-    .card-status {
+    .cardStatus {
       padding: 2px 8px;
       border: 1px solid $orange;
       border-radius: 12px;
@@ -40,12 +40,12 @@ $white: #ffffff;
     }
   }
 
-  .card-client {
+  .cardClient {
     margin: 4px 0 24px 0;
     font-weight: 500;
     @include card-font();
   }
-  .card-due {
+  .cardDue {
     margin-bottom: 16px;
     font-weight: 400;
     color: #939fa5;
