@@ -1,0 +1,49 @@
+.headerWrap {
+  margin: 40px 10vw 0 10vw;
+  width: 79vw;
+  padding-left: 8px;
+
+  .headerTitle {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .headerSubTitle {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+
+  .headerSubWrap {
+    display: flex;
+    justify-content: space-between;
+
+    .headerFilterWrap {
+      display: flex;
+
+      .refreshWrap {
+        display: flex;
+        height: 32px;
+
+        .refresh {
+          margin: 8px 12px 0 16px;
+          height: 16px;
+          cursor: pointer;
+        }
+        .refreshtext {
+          font-size: 12px;
+          line-height: 30px;
+          color: #2196f3;
+          cursor: pointer;
+        }
+      }
+    }
+    .toggleWrap {
+      .headerToggle {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}

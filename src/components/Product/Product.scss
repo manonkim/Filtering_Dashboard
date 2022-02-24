@@ -1,6 +1,24 @@
 .productWrap {
   width: 80vw;
+  margin: 0 10vw;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 10.8vw;
+}
+
+.productNone {
+  display: flex;
+  width: 79vw;
+  height: 100px;
+  margin-left: 10.5vw;
+  border: 1px solid #c2c2c2;
+  border-radius: 4px;
+
+  .productNoneText {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 20px;
+    color: #939fa5;
+  }
 }
