@@ -1,5 +1,6 @@
 import Filtering from "./Filtering/Filtering";
 import "./Header.scss";
+import Toggle from "./Toggle/Toggle";
 
 const Header = () => {
   return (
@@ -8,8 +9,16 @@ const Header = () => {
       <div className='headerSubTitle'>
         파트너님에게 딱 맞는 요청서를 찾아보세요.
       </div>
-      <Filtering title={"가공방식"} />
-      <Filtering title={"재료"} />
+      <div className='headerSubWrap'>
+        <div>
+          <Filtering title={"가공방식"} />
+          <Filtering title={"재료"} />
+        </div>
+        <div>
+          <Toggle />
+          <span className='headerToggle'>상담 중인 요청만 보기</span>
+        </div>
+      </div>
     </div>
   );
 };

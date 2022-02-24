@@ -1,6 +1,5 @@
 .headerWrap {
-  margin-top: 40px;
-  margin-left: 10.8vw;
+  margin: 40px 10.8vw 0 10.8vw;
 
   .headerTitle {
     font-size: 20px;
@@ -12,5 +11,16 @@
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 32px;
+  }
+
+  .headerSubWrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .headerToggle {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 }
