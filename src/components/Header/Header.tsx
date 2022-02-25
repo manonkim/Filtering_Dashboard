@@ -3,6 +3,7 @@ import Toggle from "../Toggle/Toggle";
 import "./Header.scss";
 
 const Header = () => {
+  const material = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
   return (
     <div className='headerWrap'>
       <div className='headerTitle'>들어온 요청</div>
@@ -11,8 +12,8 @@ const Header = () => {
       </div>
       <div className='headerSubWrap'>
         <div className='headerFilterWrap'>
-          <Filtering title={"가공방식"} />
-          <Filtering title={"재료"} />
+          <Filtering title={"가공방식"} filtering={["밀링", "선반"]} />
+          <Filtering title={"재료"} filtering={material} />
           <div className='refreshWrap'>
             <img
               className='refresh'

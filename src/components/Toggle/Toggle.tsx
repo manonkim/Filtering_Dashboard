@@ -8,13 +8,5 @@ export default function Toggle() {
     dispatch(toggleActions.onToggle());
   };
 
-  // const toggle = useSelector((state: any) => state.toggle);
-
-  // const toggleHandler = () => {
-  //   if (toggle.checked === "true") {
-  //     data.filter((item: any) => setToggleData(item.status.includes("상담중")));
-  //   }
-  // };
-  // toggleHandler();
   return <Switch onChange={handleChange} />;
 }
