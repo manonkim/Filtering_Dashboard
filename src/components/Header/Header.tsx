@@ -1,6 +1,5 @@
 import Filtering from "../Filtering/Filtering";
 import Toggle from "../Toggle/Toggle";
-// import Toggle from "../Toggle/Toggle";
 import "./Header.scss";
 
 const Header = () => {
