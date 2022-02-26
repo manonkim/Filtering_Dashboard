@@ -1,11 +1,11 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 export interface Toggletype {
   checked: boolean;
 }
 
 const toggleSlice = createSlice({
-  name: "toggle",
+  name: 'toggle',
   initialState: { checked: false } as Toggletype,
   reducers: {
     onToggle(state: Toggletype) {
@@ -14,35 +14,27 @@ const toggleSlice = createSlice({
   },
 });
 
-// const initialCounterState = { counter: 0, showCounter: true };
-
-// const counterSlice = createSlice({
-//   name: "counter",
-//   initialState: initialCounterState, //초기값설정
-//   reducers: {
-//     increment(state) {
-//       state.counter++;
-//     },
-//     decrement(state) {
-//       state.counter--;
-//     },
-//     increase(state, action) {
-//       state.counter = state.counter + action.payload;
-//     },
-//     toggleCounter(state) {
-//       state.showCounter = !state.showCounter;
-//     },
-//   },
-// });
-
-const store = configureStore({
-  reducer: { toggle: toggleSlice.reducer },
+const filteringSlice = createSlice({
+  name: 'filtering',
+  initialState: { items: [] },
+  reducers: {
+    add(state: any, action) {
+      state.items.push(action.payload);
+    },
+    remove(state: any, action) {
+      state.items = state.items.filter((item: any) => item !== action.payload);
+    },
+  },
 });
 
-// export const counterActions = counterSlice.actions;
-export const toggleActions = toggleSlice.actions;
+const store = configureStore({
+  reducer: {
+    toggle: toggleSlice.reducer,
+    filtering: filteringSlice.reducer,
+  },
+});
 
-// export const rootReducer = combineReducers({});
-// export type RootState = ReturnType<typeof rootReducer>;
+export const toggleActions = toggleSlice.actions;
+export const filteringActions = filteringSlice.actions;
 
 export default store;
