@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .navWrap {
   display: flex;
   justify-content: space-between;
@@ -6,16 +8,37 @@
   padding: 0 40px;
   background-color: #1565c0;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+  @media #{$mobile} {
+    justify-content: flex-start;
+    height: 44px;
+    padding-left: 5vw;
+  }
+
+  .mobilemenu {
+    display: none;
+    @media #{$mobile} {
+      display: block;
+      width: 24px;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+  }
 
   .logo {
     height: 20px;
     cursor: pointer;
+    @media #{$mobile} {
+      height: 12px;
+    }
   }
 
   .sideWrap {
     display: flex;
     align-items: center;
     color: #ffffff;
+    @media #{$mobile} {
+      display: none;
+    }
 
     .icon {
       height: 15px;

@@ -1,3 +1,4 @@
+@import '../../index.scss';
 @mixin card-font() {
   font-size: 14px;
   line-height: 20px;
@@ -17,6 +18,9 @@ $white: #ffffff;
   border-radius: 4px;
   color: $font-color;
   cursor: pointer;
+  @media #{$mobile} {
+    margin-left: 0;
+  }
   &:hover {
     outline: 2px solid #2196f3;
     outline-offset: -2px;

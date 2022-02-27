@@ -1,0 +1,44 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: fixed;
+  width: 280px;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #ffffff;
+  height: 100%;
+
+  .sideMenuHeader {
+    height: 44px;
+    border-bottom: 1px solid #e5e5e5;
+    .sidemenulogo {
+      height: 12px;
+      margin: 16px 20px;
+    }
+  }
+
+  .sideMenuIcon {
+    height: 15px;
+    margin: 35px 8px 0 32px;
+  }
+  .sideMenu {
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+
+  .sideMenulogout {
+    margin: 24px 0 0 32px;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+}

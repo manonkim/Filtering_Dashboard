@@ -34,14 +34,14 @@ const Header = () => {
 
 export default Header;
 
-const formData1: { id: number; name: string; title: string }[] = [
-  { id: 1, name: '밀링', title: 'method' },
-  { id: 2, name: '선반', title: 'method' },
+const formData1: { id: number; name: string }[] = [
+  { id: 1, name: '밀링' },
+  { id: 2, name: '선반' },
 ];
-const formData: { id: number; name: string; title: string }[] = [
-  { id: 1, name: '알루미늄', title: 'material' },
-  { id: 2, name: '탄소강', title: 'material' },
-  { id: 3, name: '구리', title: 'material' },
-  { id: 4, name: '합금강', title: 'material' },
-  { id: 5, name: '강철', title: 'material' },
+const formData: { id: number; name: string }[] = [
+  { id: 1, name: '알루미늄' },
+  { id: 2, name: '탄소강' },
+  { id: 3, name: '구리' },
+  { id: 4, name: '합금강' },
+  { id: 5, name: '강철' },
 ];

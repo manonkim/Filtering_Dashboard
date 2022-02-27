@@ -9,7 +9,7 @@ const Filtering: React.FC<{
   formData: any;
 }> = ({ title, formData }) => {
   const [dropdown, setDropdown] = useState(false);
-  const [isChecked, setIsChecked]: any = useState(false);
+
   const modal: any = useRef();
   const dispatch = useDispatch();
 
@@ -31,15 +31,11 @@ const Filtering: React.FC<{
   });
 
   const checkHandler = (e: any) => {
-    setIsChecked(!isChecked);
-    checkedItemhandler(e.target.value, e.target.checked);
-  };
-
-  const checkedItemhandler = (value: any, isChecked: any) => {
-    if (isChecked) {
-      dispatch(filteringActions.add(value));
+    dispatch(filteringActions.checkbox(e.target.checked));
+    if (title === '가공방식') {
+      dispatch(filteringActions.method(e.target.value));
     } else {
-      dispatch(filteringActions.remove(value));
+      dispatch(filteringActions.material(e.target.value));
     }
   };
 

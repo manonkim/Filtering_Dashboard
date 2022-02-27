@@ -1,8 +1,14 @@
+@import '../../index.scss';
 .productWrap {
   width: 80vw;
   margin: 0 10vw;
   display: flex;
   flex-wrap: wrap;
+
+  @media #{$mobile} {
+    margin-left: 5vw;
+    width: 91vw;
+  }
 }
 
 .productNone {
@@ -12,6 +18,10 @@
   margin-left: 10.5vw;
   border: 1px solid #c2c2c2;
   border-radius: 4px;
+  @media #{$mobile} {
+    margin-left: 5vw;
+    width: 88vw;
+  }
 
   .productNoneText {
     display: flex;

@@ -1,7 +1,12 @@
+@import '../../index.scss';
 .headerWrap {
   margin: 40px 10vw 0 10vw;
   width: 79vw;
   padding-left: 8px;
+  @media #{$mobile} {
+    margin: 24px 0 0 5vw;
+    padding: 0;
+  }
 
   .headerTitle {
     font-size: 20px;
@@ -18,9 +23,15 @@
   .headerSubWrap {
     display: flex;
     justify-content: space-between;
+    @media #{$mobile} {
+      flex-direction: column;
+    }
 
     .headerFilterWrap {
       display: flex;
+      @media #{$mobile} {
+        height: 45px;
+      }
 
       .refreshWrap {
         display: flex;
@@ -40,6 +51,10 @@
       }
     }
     .toggleWrap {
+      @media #{$mobile} {
+        display: inline;
+        margin-bottom: 25px;
+      }
       .headerToggle {
         font-size: 14px;
         line-height: 20px;
