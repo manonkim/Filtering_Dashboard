@@ -13,16 +13,37 @@ const toggleSlice = createSlice({
     },
   },
 });
-
+const initialState = {
+  returned: [],
+};
 const filteringSlice = createSlice({
   name: 'filtering',
-  initialState: { items: [] },
+  initialState: { checked: false, methodItems: [], materialItems: [] },
   reducers: {
-    add(state: any, action) {
-      state.items.push(action.payload);
+    checkbox(state: any, action) {
+      state.checked = action.payload;
     },
-    remove(state: any, action) {
-      state.items = state.items.filter((item: any) => item !== action.payload);
+    method(state: any, action) {
+      if (state.checked) {
+        state.methodItems.push(action.payload);
+      } else {
+        state.methodItems = state.methodItems.filter(
+          (item: any) => item !== action.payload
+        );
+      }
+    },
+    material(state: any, action) {
+      if (state.checked) {
+        state.materialItems.push(action.payload);
+      } else {
+        state.materialItems = state.materialItems.filter(
+          (item: any) => item !== action.payload
+        );
+      }
+    },
+    reset(state: any) {
+      state.methodItems = [];
+      state.materialItems = [];
     },
   },
 });

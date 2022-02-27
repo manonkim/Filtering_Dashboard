@@ -1,36 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import Card from './Card';
 import './Product.scss';
+import datatype from '../../type/types';
 
-const Product: React.FC = () => {
-  const [data, setData] = useState<any>([]);
-  const [filterData, setFilterData] = useState([]);
-
+export default function Product({ data }: { data: Array<datatype> }) {
+  const [filterData, setFilterData] = useState<any>([]);
   const toggle = useSelector((state: any) => state.toggle);
   const filtering = useSelector((state: any) => state.filtering);
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/requests').then((result) => {
-      setData(result.data);
-    });
-  }, []);
 
   useEffect(() => {
     toggle.checked === true
       ? setFilterData(data.filter((item: any) => item.status !== '대기중'))
       : setFilterData(data);
-  }, [toggle.checked]);
+  }, [toggle.checked, data]);
 
   useEffect(() => {
-    setFilterData(
-      data.filter((item: any) => item.method.includes(...filtering.items))
-    );
-  }, [filtering]);
-
-  //type에 따라
-  // filtertype ==='method' ? '가공방식':' 재료'
+    let datasave: any = data;
+    filtering.methodItems.forEach((method: any) => {
+      datasave = datasave.filter((item: any) => item.method.includes(method));
+    });
+    filtering.materialItems.forEach((material: any) => {
+      datasave = datasave.filter((item: any) =>
+        item.material.includes(material)
+      );
+    });
+    setFilterData(datasave);
+  }, [data, filtering.methodItems, filtering.materialItems]);
 
   return (
     <>
@@ -39,12 +35,13 @@ const Product: React.FC = () => {
           <Card data={data} key={data.id} />
         ))}
       </div>
-
-      <div className="productNone">
-        <div className="productNoneText">조건에 맞는 견적 요청이 없습니다.</div>
-      </div>
+      {filterData.length < 1 && (
+        <div className="productNone">
+          <div className="productNoneText">
+            조건에 맞는 견적 요청이 없습니다.
+          </div>
+        </div>
+      )}
     </>
   );
-};
-
-export default Product;
+}

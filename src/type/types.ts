@@ -5,7 +5,7 @@ export default interface datatype {
   due: string;
   count: number;
   amount: number;
-  method: string[];
-  material: string[];
+  method: Array<string>;
+  material: Array<string>;
   status: string[];
 }
