@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { filteringActions } from '../../store';
-import { useDispatch } from 'react-redux';
 import Filtering from '../Header/Filtering/Filtering';
 import Toggle from '../Header/Toggle/Toggle';
 import './Header.scss';
@@ -9,11 +8,10 @@ const Header = () => {
   const filtering = useSelector((state: any) => state.filtering);
   const filtered = [...filtering.methodItems, ...filtering.materialItems];
   const dispatch = useDispatch();
-  const handleChange = (event: any) => {
+  const handleChange = () => {
+    dispatch(filtering.methodItems(''));
     console.log('hi');
-    dispatch(filtering.reset(null));
   };
-  console.log(filtering.methodItems);
   return (
     <div className="headerWrap">
       <div className="headerTitle">들어온 요청</div>

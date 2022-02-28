@@ -1,6 +1,6 @@
 import { Checkbox } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filteringActions } from '../../../store';
 import './Filtering.scss';
 
@@ -9,11 +9,14 @@ const Filtering: React.FC<{
   formData: any;
 }> = ({ title, formData }) => {
   const [dropdown, setDropdown] = useState(false);
-
   const modal: any = useRef();
-  const dispatch = useDispatch();
 
-  const dropdownHandler = () => {
+  const dispatch = useDispatch();
+  const filtering = useSelector((state: any) => state.filtering);
+  const methodlength = filtering.methodItems.length;
+  const materiallength = filtering.materialItems.length;
+
+  const dropdownHandler = (e: any) => {
     setDropdown(!dropdown);
   };
 
@@ -39,18 +42,53 @@ const Filtering: React.FC<{
     }
   };
 
-  return (
-    <div className="Container" ref={modal}>
-      <div className="filterBox">
-        <div className="filterWrap" onClick={dropdownHandler}>
-          <p className="filterTitle">{title}</p>
+  const switchLength = () => {
+    if (methodlength > 0 && title === '가공방식') {
+      return (
+        <div
+          className="filterWrap"
+          onClick={dropdownHandler}
+          style={{ color: 'white', backgroundColor: '#1565C0' }}
+        >
+          {title} ({methodlength})
           <img
             className="dropdown"
             src="../../img/dropdown.png"
             alt="dropdown"
           />
         </div>
-      </div>
+      );
+    } else if (materiallength > 0 && title === '재료') {
+      return (
+        <div
+          className="filterWrap"
+          onClick={dropdownHandler}
+          style={{ color: 'white', backgroundColor: '#1565C0' }}
+        >
+          {title} ({materiallength})
+          <img
+            className="dropdown"
+            src="../../img/dropdown.png"
+            alt="dropdown"
+          />
+        </div>
+      );
+    } else
+      return (
+        <div className="filterWrap" onClick={dropdownHandler}>
+          {title}
+          <img
+            className="dropdown"
+            src="../../img/dropdown.png"
+            alt="dropdown"
+          />
+        </div>
+      );
+  };
+
+  return (
+    <div className="Container" ref={modal}>
+      <div className="filterBox">{switchLength()}</div>
       {dropdown === true && (
         <div className="filterMenu">
           {formData.map((item: any) => (

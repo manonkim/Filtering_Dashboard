@@ -12,18 +12,15 @@
     .filterWrap {
       display: flex;
       align-items: center;
+      padding: 0 13px;
       height: 32px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #323d45;
 
-      .filterTitle {
-        margin: 0 2px;
-        padding: 11px;
-        font-size: 12px;
-        font-weight: 500;
-        color: #323d45;
-      }
       .dropdown {
         height: 5px;
-        margin-right: 19px;
+        margin-left: 12px;
       }
     }
   }

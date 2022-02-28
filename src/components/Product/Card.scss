@@ -17,7 +17,6 @@ $white: #ffffff;
   border: 1px solid $light-gray;
   border-radius: 4px;
   color: $font-color;
-  cursor: pointer;
   @media #{$mobile} {
     margin-left: 0;
   }
@@ -89,6 +88,7 @@ $white: #ffffff;
     border: 0;
     background-color: $btn;
     color: $white;
+    cursor: pointer;
     @include card-font();
   }
 
@@ -97,5 +97,6 @@ $white: #ffffff;
     color: $btn;
     background-color: $white;
     border: 1px solid $btn;
+    cursor: pointer;
   }
 }

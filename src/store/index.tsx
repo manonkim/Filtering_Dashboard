@@ -13,9 +13,7 @@ const toggleSlice = createSlice({
     },
   },
 });
-const initialState = {
-  returned: [],
-};
+
 const filteringSlice = createSlice({
   name: 'filtering',
   initialState: { checked: false, methodItems: [], materialItems: [] },
@@ -41,9 +39,9 @@ const filteringSlice = createSlice({
         );
       }
     },
-    reset(state: any) {
-      state.methodItems = [];
-      state.materialItems = [];
+    reset(state: any, action) {
+      state.methodItems.push(action.payload);
+      state.materialItems.push(action.payload);
     },
   },
 });
