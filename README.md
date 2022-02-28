@@ -1,6 +1,7 @@
-# A-teams-과제
+# A-team-과제
 
-### 작업기간 : 2022.02.23 ~ 2022.02.28
+#### 작업기간 : 2022.02.23 ~ 2022.02.28
+#### 사용기술스택 : React, Redux-toolkit, TypeScript, SCSS, JavaScript
 
 <br><br>
 
@@ -8,7 +9,7 @@
 
 <br>
 
-> Filtering
+### Filtering
 
 ```
   1. dropdown menu 클릭 시 checkbox 생성 (toggle + menu 바깥영역 클릭 시 close)
@@ -20,15 +21,23 @@
 
 ```
 
+https://user-images.githubusercontent.com/85450378/156003221-f16fd3f9-1783-4101-9179-6d095bac22f8.mov
+
+
+
 <br>
 
-> GNB
+### GNB
 
 ```
   1. 로고, 가공업체, 로그아웃 버튼
   2. mobile 반응형 레이아웃 구현
     (메뉴버튼 클릭 시 슬라이드메뉴 : 백그라운드 영역음영 + 클릭 시 close)
 ```
+
+
+https://user-images.githubusercontent.com/85450378/156003159-5e2af511-e39e-4d93-988a-3908b5f72e86.mov
+
 
 <br>
 <br>
@@ -37,10 +46,32 @@
 ## **[ 프로젝트 구조 ]**
 
 ```html
-├── App.tsx ├── index.tsx ├── index.scss ├── src │ ├── components │ │ ├── Header
-│ │ │ ├── Header.tsx │ │ │ ├── Header.scss │ │ │ ├── Filtering.tsx │ │ │ ├──
-Filtering.scss │ │ │ └── Toggle.tsx │ │ ├── Nav │ │ │ ├── Nav.tsx │ │ │ ├──
-Nav.scss │ │ │ ├── SideMenu.tsx │ │ │ └── SideMenu.scss │ │ └── Product │ │ ├──
-Card.tsx │ │ ├── Card.scss │ │ ├── Product.tsx │ │ └── Product.scss │ ├── store
-│ │ └── index.tsx │ └── type │ └── types.ts └── public ├── img └── index.html
+├── App.tsx
+├── index.tsx
+├── index.scss
+├── src
+│   ├── components
+│   │   ├── Header
+│   │   │   ├── Header.tsx
+│   │   │   ├── Header.scss
+│   │   │   ├── Filtering.tsx
+│   │   │   ├── Filtering.scss
+│   │   │   └──  Toggle.tsx
+│   │   ├── Nav
+│   │   │   ├── Nav.tsx
+│   │   │   ├── Nav.scss
+│   │   │   ├── SideMenu.tsx
+│   │   │   └── SideMenu.scss
+│   │   └── Product
+│   │       ├── Card.tsx
+│   │       ├── Card.scss
+│   │       ├── Product.tsx
+│   │       └── Product.scss
+│   ├── store
+│   │   └── index.tsx
+│   └── type
+│       └── types.ts
+└── public
+    ├── img
+    └── index.html
 ```
