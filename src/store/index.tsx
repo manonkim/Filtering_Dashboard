@@ -39,9 +39,9 @@ const filteringSlice = createSlice({
         );
       }
     },
-    reset(state: any, action) {
-      state.methodItems.push(action.payload);
-      state.materialItems.push(action.payload);
+    reset(state: any) {
+      state.methodItems = [];
+      state.materialItems = [];
     },
   },
 });

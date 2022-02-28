@@ -8,10 +8,10 @@ const Header = () => {
   const filtering = useSelector((state: any) => state.filtering);
   const filtered = [...filtering.methodItems, ...filtering.materialItems];
   const dispatch = useDispatch();
-  const handleChange = () => {
-    dispatch(filtering.methodItems(''));
-    console.log('hi');
+  const handleChange = (event: any) => {
+    dispatch(filteringActions.reset());
   };
+  console.log(filtering.methodItems);
   return (
     <div className="headerWrap">
       <div className="headerTitle">들어온 요청</div>
@@ -23,18 +23,13 @@ const Header = () => {
           <Filtering title={'가공방식'} formData={formData1} />
           <Filtering title={'재료'} formData={formData} />
           {filtered.length > 0 && (
-            <div className="refreshWrap">
+            <div className="refreshWrap" onClick={handleChange}>
               <img
                 className="refresh"
                 src="../../img/refresh.png"
                 alt="refresh"
               />
-              <input
-                className="resetbtn"
-                onChange={handleChange}
-                value={'필터링 리셋'}
-                readOnly
-              />
+              <div className="resetbtn">필터링 리셋</div>
             </div>
           )}
         </div>
