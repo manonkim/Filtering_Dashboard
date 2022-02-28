@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import Card from './Card';
 import './Product.scss';
 import datatype from '../../type/types';
+import { ReducerType } from '../../store';
 
 export default function Product({ data }: { data: Array<datatype> }) {
-  const [filterData, setFilterData] = useState<any>([]);
-  const toggle = useSelector((state: any) => state.toggle);
-  const filtering = useSelector((state: any) => state.filtering);
+  const [filterData, setFilterData] = useState<datatype[]>([]);
+  const toggle = useSelector((state: ReducerType) => state.toggle);
+  const filtering = useSelector((state: ReducerType) => state.filtering);
 
   useEffect(() => {
     toggle.checked === true
@@ -16,12 +17,14 @@ export default function Product({ data }: { data: Array<datatype> }) {
   }, [toggle.checked, data]);
 
   useEffect(() => {
-    let datasave: any = data;
-    filtering.methodItems.forEach((method: any) => {
-      datasave = datasave.filter((item: any) => item.method.includes(method));
+    let datasave: datatype[] = data;
+    filtering.methodItems.forEach((method) => {
+      datasave = datasave.filter((item: datatype) =>
+        item.method.includes(method)
+      );
     });
-    filtering.materialItems.forEach((material: any) => {
-      datasave = datasave.filter((item: any) =>
+    filtering.materialItems.forEach((material) => {
+      datasave = datasave.filter((item: datatype) =>
         item.material.includes(material)
       );
     });
@@ -31,7 +34,7 @@ export default function Product({ data }: { data: Array<datatype> }) {
   return (
     <>
       <div className="productWrap">
-        {filterData.map((data: any) => (
+        {filterData.map((data: datatype) => (
           <Card data={data} key={data.id} />
         ))}
       </div>

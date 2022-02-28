@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Nav.scss';
 
 const Nav = () => {
-  const [onMenu, setOnMenu] = useState(false);
+  const [onMenu, setOnMenu] = useState<boolean>(false);
   const openMenu = () => {
     setOnMenu(!onMenu);
   };

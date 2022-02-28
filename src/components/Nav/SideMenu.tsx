@@ -1,8 +1,9 @@
+import { MouseEventHandler } from 'react';
 import './SideMenu.scss';
 
-export default function SideMenu(props: any) {
+export default function SideMenu({ close }: { close: MouseEventHandler }) {
   return (
-    <div className="backdrop" onClick={props.close}>
+    <div className="backdrop" onClick={close}>
       <div className="modal">
         <header className="sideMenuHeader">
           <img

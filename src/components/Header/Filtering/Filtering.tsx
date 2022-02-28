@@ -1,18 +1,19 @@
 import { Checkbox } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filteringActions } from '../../../store';
+import datatype from '../../../type/types';
+import { ReducerType } from '../../../store';
 import './Filtering.scss';
 
 const Filtering: React.FC<{
   title: string;
-  formData: any;
+  formData: datatype | any;
 }> = ({ title, formData }) => {
   const [dropdown, setDropdown] = useState(false);
-  const modal: any = useRef();
-
+  const modal: any = useRef<HTMLInputElement>();
   const dispatch = useDispatch();
-  const filtering = useSelector((state: any) => state.filtering);
+  const filtering = useSelector((state: ReducerType) => state.filtering);
   const methodlength = filtering.methodItems.length;
   const materiallength = filtering.materialItems.length;
 
@@ -20,7 +21,7 @@ const Filtering: React.FC<{
     setDropdown(!dropdown);
   };
 
-  const outsideClickHandler = (e: any) => {
+  const outsideClickHandler = (e: MouseEvent) => {
     if (dropdown && !modal.current.contains(e.target)) {
       setDropdown(false);
     }
@@ -33,7 +34,7 @@ const Filtering: React.FC<{
     };
   });
 
-  const checkHandler = (e: any) => {
+  const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(filteringActions.checkbox(e.target.checked));
     if (title === '가공방식') {
       dispatch(filteringActions.method(e.target.value));
@@ -91,7 +92,7 @@ const Filtering: React.FC<{
       <div className="filterBox">{switchLength()}</div>
       {dropdown === true && (
         <div className="filterMenu">
-          {formData.map((item: any) => (
+          {formData.map((item: { id: number; name: string; title: string }) => (
             <div key={item.id}>
               <Checkbox
                 size="small"

@@ -1,9 +1,8 @@
 import datatype from '../../type/types';
 import './Card.scss';
 
-const Card: React.FC<{ data: any }> = ({ data }) => {
+const Card: React.FC<{ data: datatype }> = ({ data }) => {
   const status: any = data.status;
-
   return (
     <div className="card">
       <div className="titleWrap">

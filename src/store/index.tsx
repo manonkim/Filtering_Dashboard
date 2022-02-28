@@ -3,6 +3,11 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 export interface Toggletype {
   checked: boolean;
 }
+export interface FilterType {
+  checked: boolean;
+  methodItems: string[];
+  materialItems: string[];
+}
 
 const toggleSlice = createSlice({
   name: 'toggle',
@@ -16,30 +21,34 @@ const toggleSlice = createSlice({
 
 const filteringSlice = createSlice({
   name: 'filtering',
-  initialState: { checked: false, methodItems: [], materialItems: [] },
+  initialState: {
+    checked: false,
+    methodItems: [],
+    materialItems: [],
+  } as FilterType,
   reducers: {
-    checkbox(state: any, action) {
+    checkbox(state, action) {
       state.checked = action.payload;
     },
-    method(state: any, action) {
+    method(state, action) {
       if (state.checked) {
         state.methodItems.push(action.payload);
       } else {
         state.methodItems = state.methodItems.filter(
-          (item: any) => item !== action.payload
+          (item) => item !== action.payload
         );
       }
     },
-    material(state: any, action) {
+    material(state, action) {
       if (state.checked) {
         state.materialItems.push(action.payload);
       } else {
         state.materialItems = state.materialItems.filter(
-          (item: any) => item !== action.payload
+          (item) => item !== action.payload
         );
       }
     },
-    reset(state: any) {
+    reset(state) {
       state.methodItems = [];
       state.materialItems = [];
     },
@@ -52,6 +61,9 @@ const store = configureStore({
     filtering: filteringSlice.reducer,
   },
 });
+
+export type ReducerType = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export const toggleActions = toggleSlice.actions;
 export const filteringActions = filteringSlice.actions;
