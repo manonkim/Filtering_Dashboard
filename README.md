@@ -1,4 +1,4 @@
-# A-team-과제
+# Filtering Dashboard
 
 #### 작업기간 : 2022.02.23 ~ 2022.02.28
 #### 사용기술스택 : React, Redux-toolkit, TypeScript, SCSS, JavaScript
